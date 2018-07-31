@@ -4,7 +4,7 @@
 
 It turns [config](https://www.11ty.io/docs/config/) like this:
 
-```
+```javascript
 module.exports = function( eleventyConfig ) {
 
 	eleventyConfig.cloudinaryCloudName = 'your-cloud-name-here';
@@ -16,7 +16,7 @@ module.exports = function( eleventyConfig ) {
 
 and [shortcodes](https://www.11ty.io/docs/shortcodes/) like this:
 
-```
+```nunjucks
 {% respimg
 	"https://cool.img/here.jpg",
 	"A cool image",
@@ -26,7 +26,7 @@ and [shortcodes](https://www.11ty.io/docs/shortcodes/) like this:
 
 into responsive `<img>` tags, like this:
 
-```
+```html
 <img
 	srcset="
 		https://res.cloudinary.com/your-cloud-name-here/image/fetch/q_auto,f_auto,w_320/https://cool.img/here.jpg 320w,
@@ -53,15 +53,15 @@ The resulting `<img>`s are “responsive” in the following ways:
 
 ## Configuration notes
 
-1. Be sure to replace the `eleventyConfig.cloudinaryCloudName` with your own dang Cloudinary cloud name.
-2. Make sure that the domains where you’ll be hosting your originals are either listed in your Cloudinary settings, under “Security » Allowed fetch domains”. Alternatively, leave the field blank, and Cloudinary will happily fetch from any domain.
+1. After copy/pasting the contents of `.eleventyConfig` into your own configuration, be sure to replace `eleventyConfig.cloudinaryCloudName` with your own dang Cloudinary cloud name.
+2. Make sure that the domain(s) where you’ll be hosting your originals are whitelisted in your Cloudinary settings, under “Security » Allowed fetch domains”. Alternatively, leave the field blank, and Cloudinary will happily fetch from any domain. 
 
 ## TODO
 
 - [ ] limit `srcset` breakpoints to the intrinsic width of the original (don’t let Cloudinary upscale)
 - [ ] allow relative `src` paths
 - [ ] don’t `fetch` images that are already in your Cloudinary media library
-- [ ] smart `srcset` breakpoints, using Cloudinary’s [automatic responsive image breakpoint features]()
-- [ ] automatic sizes, (probably using Puppeteer and [@ausi’s logic]()?)
+- [ ] smarter `srcset` breakpoints, using Cloudinary’s [automatic responsive image breakpoint features](http://www.responsivebreakpoints.com)
+- [ ] automatic `sizes`‽ (probably using Puppeteer and [@ausi’s logic](https://github.com/ausi/respimagelint/blob/master/src/util/computeSizesAttribute.js)?)
 - [ ] what should it do with animated Gifs?
 
