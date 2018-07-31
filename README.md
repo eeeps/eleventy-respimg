@@ -1,4 +1,4 @@
-# A Cloudinary-powered responsive image Eleventy shortcode
+# `{% respimg %}`
 
 ## What does it do?
 
@@ -51,10 +51,10 @@ The resulting `<img>`s are “responsive” in the following ways:
 	- strike a [consistent balance](https://cloudinary.com/blog/the_holy_grail_of_image_optimization_or_balancing_visual_quality_and_file_size) between *perceived* quality and file-size
 	- respond to user preferences, dialing quality and file size way down in the presence of the [`Save-Data` header](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/save-data/).
 
-## Configuration notes
+## Installation
 
-1. After copy/pasting the contents of `.eleventyConfig` into your own configuration, be sure to replace `eleventyConfig.cloudinaryCloudName` with your own dang Cloudinary cloud name.
-2. Make sure that the domain(s) where you’ll be hosting your originals are whitelisted in your Cloudinary settings, under “Security » Allowed fetch domains”. Alternatively, leave the field blank, and Cloudinary will happily fetch from any domain. 
+1. After copy/pasting the contents of [`.eleventy.js`](.eleventy.js) into your own configuration, be sure to set `eleventyConfig.cloudinaryCloudName` to your own dang Cloudinary cloud name.
+2. Make sure that the domains where you’ll be hosting your originals are whitelisted in your Cloudinary settings, under “Security » Allowed fetch domains”. Alternatively, leave the field blank, and Cloudinary will happily fetch from any domain. 
 
 ## TODO
 
