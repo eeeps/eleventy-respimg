@@ -62,17 +62,17 @@ After `npm install`ing, open up your Eleventy config file (probably `.eleventy.j
 3. use `addPlugin`.
 
 ```
-; ①
+// ①
 const pluginRespimg = require( "eleventy-plugin-respimg" );
 
 module.exports = function( eleventyConfig ) {
 
-	; ②
+	// ②
 	eleventyConfig.cloudinaryCloudName = 'your-cloud-name-here';
 	eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280, 1600, 1920, 2240, 2560 ];
 	eleventyConfig.fallbackWidth = 640;
 
-	; ③
+	// ③
 	eleventyConfig.addPlugin( pluginRespimg );
 	
 };
