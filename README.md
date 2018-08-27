@@ -5,13 +5,9 @@
 It turns [config](https://www.11ty.io/docs/config/) like this:
 
 ```javascript
-module.exports = function( eleventyConfig ) {
-
-	eleventyConfig.cloudinaryCloudName = 'your-cloud-name-here';
-	eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280, 1600, 1920, 2240, 2560 ];
-	eleventyConfig.fallbackWidth = 640;
-	
-} );
+eleventyConfig.cloudinaryCloudName = 'your-cloud-name-here';
+eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280, 1600, 1920, 2240, 2560 ];
+eleventyConfig.fallbackWidth = 640;
 ```
 
 and [shortcodes](https://www.11ty.io/docs/shortcodes/) like this:
@@ -53,8 +49,40 @@ The resulting `<img>`s are “responsive” in the following ways:
 
 ## Installation
 
-1. After copy/pasting the contents of [`.eleventy.js`](.eleventy.js) into your own configuration, be sure to set `eleventyConfig.cloudinaryCloudName` to your own dang Cloudinary cloud name.
-2. Make sure that the domains where you’ll be hosting your originals are whitelisted in your Cloudinary settings, under “Security » Allowed fetch domains”. Alternatively, leave the field blank, and Cloudinary will happily fetch from any domain. 
+The plugin is [available on npm](https://www.npmjs.com/package/eleventy-plugin-respimg).
+
+```
+npm install eleventy-plugin-respimg
+```
+
+After `npm install`ing, open up your Eleventy config file (probably `.eleventy.js`) and
+
+1. require it
+2. set the mandatory config parameters, and 
+3. use `addPlugin`.
+
+```
+; ①
+const pluginRespimg = require( "eleventy-plugin-respimg" );
+
+module.exports = function( eleventyConfig ) {
+
+	; ②
+	eleventyConfig.cloudinaryCloudName = 'your-cloud-name-here';
+	eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280, 1600, 1920, 2240, 2560 ];
+	eleventyConfig.fallbackWidth = 640;
+
+	; ③
+	eleventyConfig.addPlugin( pluginRespimg );
+	
+};
+````
+
+Also! Make sure that the domains where you’ll be hosting your originals are whitelisted in your Cloudinary settings, under “Security » Allowed fetch domains”. Alternatively, leave the field blank, and Cloudinary will happily [`fetch`](https://cloudinary.com/documentation/fetch_remote_images#remote_image_fetch_url) from any domain. 
+
+## Example
+
+[Here’s a quick, actual example](https://github.com/eeeps/eleventy-respimg-example), that uses a couple of these in a couple of contexts.
 
 ## TODO
 

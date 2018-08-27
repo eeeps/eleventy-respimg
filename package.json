@@ -1,0 +1,26 @@
+{
+  "name": "eleventy-plugin-respimg",
+  "version": "0.1.1",
+  "description": "An Eleventy plugin which provides a responsive-image shortcode, powered by Cloudinary",
+  "main": ".eleventy.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eeeps/eleventy-respimg.git"
+  },
+  "keywords": [
+    "eleventy"
+  ],
+  "author": {
+    "name": "Eric Portis",
+    "email": "e@ericportis.com",
+    "url": "https://ericportis.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eeeps/eleventy-respimg/issues"
+  },
+  "homepage": "https://github.com/eeeps/eleventy-respimg#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.5.2"
+  }
+}
