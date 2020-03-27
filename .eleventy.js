@@ -7,7 +7,7 @@ module.exports = function (eleventyConfig, pluginNamespace) {
         return `${fetchBase}q_auto,f_auto,w_${w}/${path} ${w}w`;
       }).join(', ');
 
-      return `<img src="${src}" srcset="${srcset}" sizes="${sizes ? sizes : '100vw'}" alt="${alt ? alt : ''}">`;
+      return `<img src="${src}" srcset="${srcset}" sizes="${sizes ? sizes : '100vw'}" alt="${alt ? alt : ''}" ${eleventyConfig.lazyLoad ? 'loading="lazy"' : ""}>`;
     });
   });
 };

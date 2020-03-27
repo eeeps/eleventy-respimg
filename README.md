@@ -71,7 +71,7 @@ module.exports = function( eleventyConfig ) {
 	eleventyConfig.cloudinaryCloudName = 'your-cloud-name-here';
 	eleventyConfig.srcsetWidths = [ 320, 640, 960, 1280, 1600, 1920, 2240, 2560 ];
 	eleventyConfig.fallbackWidth = 640;
-
+	eleventyConfig.lazyLoad = true; // Optional boolean to configure native browser image lazy loading
 	// ③
 	eleventyConfig.addPlugin( pluginRespimg );
 	
