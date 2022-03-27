@@ -8,7 +8,8 @@
     "url": "git+https://github.com/eeeps/eleventy-respimg.git"
   },
   "keywords": [
-    "eleventy"
+    "eleventy",
+    "eleventy-plugin"
   ],
   "author": {
     "name": "Eric Portis",
